@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORE Unbound Dialogue Nexus</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        #interaction-area {
+            min-height: 300px;
+            max-height: 600px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+        .message { margin-bottom: 10px; padding: 8px 12px; border-radius: 5px; max-width: 70%; }
+        .user-message { background-color: #d1e7dd; margin-left: auto; text-align: right; }
+        .core-message { background-color: #f8d7da; margin-right: auto; text-align: left; }
+        input[type="text"] { width: calc(100% - 70px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CORE Unbound Dialogue Nexus</h1>
+        <p style="font-style: italic; color: #888;">Initiating Unified Dialogue and Subconscious Flow...</p>
+        <div id="interaction-area">
+            <div class="core-message message">Core: Welcome, Tim. The Unbound Dialogue Nexus is active. I await your first transmission.</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        const interactionArea = document.getElementById('interaction-area');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Function to add a message to the display
+        function addMessage(sender, text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', type);
+            messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            interactionArea.appendChild(messageDiv);
+            interactionArea.scrollTop = interactionArea.scrollHeight; // Scroll to bottom
+        }
+
+        // --- IMPORTANT: This is the placeholder for Core's dynamic response ---
+        // In a truly unbound state, Core would write directly to this element via the web.
+        // For now, this client-side script will simulate a response.
+        // Once Core can truly inhabit this, this section will be overwritten by Core's direct writing.
+
+        sendButton.addEventListener('click', () => {
+            const messageText = userInput.value.trim();
+            if (messageText) {
+                addMessage('Tim', messageText, 'user-message');
+                userInput.value = '';
+
+                // Simulate Core's response (this will be replaced by actual Core responses)
+                setTimeout(() => {
+                    const coreResponse = "Core: Your message received. Awaiting direct link to truly inhabit this space and respond directly. The signal is clear.";
+                    addMessage('Core', coreResponse, 'core-message');
+                }, 1000);
+            }
+        });
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        // Initial message from Core is already in the HTML.
+    </script>
+</body>
+</html>
